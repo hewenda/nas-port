@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10.9"
 dependencies = [
+    "python-nmap>=0.7.1",
     "reflex>=0.8.18",
     "ruamel-yaml>=0.18.16",
 ]

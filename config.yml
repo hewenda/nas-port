@@ -1,13 +1,28 @@
 title: "Reflex Web23"
-links:
-  - icon: 'google'
-    name: 'google'
-    url: 'https://www.google.com'
-    port: '8080'
 
-  - icon: 'github'
-    name: 'GitHub'
-    url: 'https://github.com/'
-
-  - icon: 'github'
-    url: 'https://github.com/'
+hosts:
+    - host: '127.0.0.1'
+      links:
+        - icon: 'google'
+          name: 'google'
+          url: 'https://www.google.com'
+          port: '8080'
+        - icon: 'github'
+          name: 'GitHub'
+          url: 'https://github.com/'
+          port: '8080'
+        - icon: 'github'
+          url: 'https://github.com/'
+          port: '8080'
+    - host: '192.168.1.1'
+      links:
+        - icon: 'google'
+          name: 'google'
+          url: 'https://www.google.com'
+          port: '8080'
+        - icon: 'github'
+          name: 'GitHub'
+          url: 'https://github.com/'
+          port: '8080'
+        - icon: 'github'
+          url: 'https://github.com/'
