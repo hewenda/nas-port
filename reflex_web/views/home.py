@@ -20,7 +20,7 @@ def index() -> rx.Component:
     host_components = []
 
     for host in hosts:
-        links = host.get("links")
+        links = host.get("links", [])
         host_name = host.get("host")
         links_components = []
 
@@ -57,9 +57,15 @@ def index() -> rx.Component:
                     as_child=True,
                 )
             )
+
+        editor = scan_modal(trigger=rx.button(rx.icon("cog", size=14, cursor="pointer"), variant="ghost"))
         host_components.append(
             rx.vstack(
-                rx.heading(host_name, size="3"),
+                rx.stack(
+                    rx.heading(host_name, size="3"),
+                    editor,
+                    align_items="center",
+                ),
                 rx.divider(size="4"),
                 rx.grid(
                     links_components,
@@ -71,11 +77,10 @@ def index() -> rx.Component:
         )
 
     content = rx.container(
-        rx.stack(
-            scan_modal(None, None),
-            rx.vstack(host_components, spacing="4"),
+        rx.flex(
+            rx.flex(host_components, spacing="4", flex="1", direction="column"),
             spacing="5",
-            justify="center",
+            direction="column",
         ),
     )
     return page_layout(content)

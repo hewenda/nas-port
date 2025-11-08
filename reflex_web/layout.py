@@ -2,15 +2,18 @@
 
 import reflex as rx
 from reflex.style import set_color_mode, color_mode
+from reflex_web.components.scan_modal import scan_modal
 
 
 def navbar() -> rx.Component:
     return rx.box(
         rx.desktop_only(
             rx.hstack(
+                scan_modal(trigger=rx.button(rx.icon("circle-plus", size=14, cursor="pointer"), variant="ghost")),
                 toggle_color_mode(),
                 justify="end",
                 spacing="5",
+                align_items="center",
             ),
         ),
         rx.mobile_and_tablet(
