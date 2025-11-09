@@ -2,7 +2,7 @@ import reflex as rx
 from util.config import get_config
 from reflex_web.layout import page_layout
 from reflex_web.components.si_icon import simple_icon
-from reflex_web.components.scan_modal import scan_modal
+from reflex_web.components.dialog_scan import DialogScan
 
 app_config = get_config()
 
@@ -58,12 +58,15 @@ def index() -> rx.Component:
                 )
             )
 
-        editor = scan_modal(trigger=rx.button(rx.icon("cog", size=14, cursor="pointer"), variant="ghost"))
+        dialog_scan = DialogScan.create(
+            trigger=rx.button(rx.icon("cog", size=14, cursor="pointer"), variant="ghost")
+        )
+
         host_components.append(
             rx.vstack(
                 rx.stack(
                     rx.heading(host_name, size="3"),
-                    editor,
+                    dialog_scan,
                     align_items="center",
                 ),
                 rx.divider(size="4"),
